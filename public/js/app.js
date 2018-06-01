@@ -20,7 +20,7 @@ container.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 
 // Draw in the canvas for draw message received
-const socket = new WebSocket("ws://" + location.host + "/", "protocolOne");
+const socket = new WebSocket(location.origin.replace(/^http/, 'ws'), "protocolOne");
 
 socket.addEventListener("message", event => {
     const message = JSON.parse(event.data);
